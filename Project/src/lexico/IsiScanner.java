@@ -19,6 +19,7 @@ public class IsiScanner {
 			line = 1;
 			column = 0;
 			String txtConteudo;
+                        
 			txtConteudo = new String(Files.readAllBytes(Paths.get(filename)),StandardCharsets.UTF_8);
 //			System.out.println("DEBUG --------");
 //			System.out.println(txtConteudo);

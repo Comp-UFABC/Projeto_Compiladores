@@ -8,7 +8,9 @@ import parser.IsiParser;
 public class MainClass {
 	public static void main(String[] args) {
 		try {
-			IsiScanner sc = new IsiScanner("input.isi");
+                        
+                    
+			IsiScanner sc = new IsiScanner("src/appends/programa.isi");
 			IsiParser  pa = new IsiParser(sc);
 			
 			pa.E();

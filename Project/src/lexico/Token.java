@@ -8,13 +8,14 @@ public class Token {
 	public static final int TK_ASSIGN      = 4;
 	
 	public static final String TK_TEXT[] = {
-			"IDENTIFIER", "NUMBER", "OPERATOR", "PONCTUACTION", "ASSIGNMENT"
+			"IDENTIFIER", "NUMBER", "OPERATOR", "PONCTUACTION", "ASSIGNMENT","PROGRAM"
 	};
 	
 	private int    type;
 	private String text;
 	private int    line;
 	private int    column;
+        
 	
 	public Token(int type, String text) {
 		super();

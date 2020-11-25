@@ -1,4 +1,4 @@
-package br.com.professorisidro.compiler.exceptions;
+package exceptions;
 
 public class IsiSyntaxException extends RuntimeException{
 	

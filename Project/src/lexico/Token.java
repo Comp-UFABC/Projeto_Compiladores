@@ -1,4 +1,4 @@
-package br.com.professorisidro.compiler.lexico;
+package lexico;
 
 public class Token {
 	public static final int TK_IDENTIFIER  = 0;

@@ -1,10 +1,10 @@
-package br.com.professorisidro.compiler.lexico;
+package lexico;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import br.com.professorisidro.compiler.exceptions.IsiLexicalException;
+import exceptions.IsiLexicalException;
 
 public class IsiScanner {
 	

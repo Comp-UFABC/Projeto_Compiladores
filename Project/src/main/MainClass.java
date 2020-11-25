@@ -1,9 +1,9 @@
-package br.com.professorisidro.compiler.main;
+package main;
 
-import br.com.professorisidro.compiler.exceptions.IsiLexicalException;
-import br.com.professorisidro.compiler.exceptions.IsiSyntaxException;
-import br.com.professorisidro.compiler.lexico.IsiScanner;
-import br.com.professorisidro.compiler.parser.IsiParser;
+import exceptions.IsiLexicalException;
+import exceptions.IsiSyntaxException;
+import lexico.IsiScanner;
+import parser.IsiParser;
 
 public class MainClass {
 	public static void main(String[] args) {

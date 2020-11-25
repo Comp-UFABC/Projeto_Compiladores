@@ -1,8 +1,8 @@
-package br.com.professorisidro.compiler.parser;
+package parser;
 
-import br.com.professorisidro.compiler.exceptions.IsiSyntaxException;
-import br.com.professorisidro.compiler.lexico.IsiScanner;
-import br.com.professorisidro.compiler.lexico.Token;
+import exceptions.IsiSyntaxException;
+import lexico.IsiScanner;
+import lexico.Token;
 
 public class IsiParser {
 

@@ -26,6 +26,7 @@ WS=20
 'escreva'=6
 'se'=7
 'senao'=8
+'enquanto'=21
 '('=9
 ')'=10
 ';'=11

@@ -12,7 +12,7 @@ public class IsiSymbolTable {
 		map = new HashMap<String, IsiSymbol>();
 		
 	}
-	
+	//leitura arquivo. Aqui ele começa a ler o arquivo e coloca no hashmap
 	public void add(IsiSymbol symbol) {
 		map.put(symbol.getName(), symbol);
 	}

@@ -11,6 +11,7 @@ grammar IsiLang;
 	import br.com.professorisidro.isilanguage.ast.CommandEscrita;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
+        import br.com.professorisidro.isilanguage.ast.CommandRepeticao;
 	import java.util.ArrayList;
 	import java.util.Stack;
 }
@@ -155,6 +156,14 @@ cmdenquanto :  'enquanto'
                       curThread = new ArrayList<AbstractCommand>(); 
                       stack.push(curThread);
                     }
+                    (cmd)+ 
+                    
+                    FCH 
+                    {
+                       listaTrue = stack.pop();	
+                       CommandRepeticao cmd = new CommandRepeticao(_exprDecision, listaTrue);
+                   		stack.peek().add(cmd);
+                    } 
                     ;
                     
 cmdselecao  :  'se' AP

@@ -10,15 +10,14 @@ programa
   
   enquanto(a > b)
 {
+	escreva(a);
+}
     se ( a > b ) {
      escreva (a);
   }
   senao {
      escreva (b);
   }
-}
-  
-  
-  
 
+  
 fimprog;

@@ -1,0 +1,21 @@
+programa
+
+  numero a, b;
+  texto  t1,t2,t3;
+
+  leia(a);
+  leia(b);
+  
+  a = 11 + 2 * 3 / b;
+  b = 45;
+
+  se ( a > b ) {
+     escreva (a);
+  }
+  senao {
+     escreva (b);
+  }
+  
+  
+
+fimprog;

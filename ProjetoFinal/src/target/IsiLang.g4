@@ -102,6 +102,7 @@ cmd		:  cmdleitura
  		|  cmdescrita 
  		|  cmdattrib
  		|  cmdselecao  
+                |  cmdenquanto
 		;
 		
 cmdleitura	: 'leia' AP
@@ -143,7 +144,22 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
                }
 			;
 			
-			
+cmdenquanto :  'enquanto'
+                    AP
+                    ID{_exprDecision = _input.LT(-1).getText(); }
+                    OPREL { _exprDecision += _input.LT(-1).getText(); }
+                    (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
+                    FP
+                    ACH
+                    {
+                      curThread = new ArrayList<AbstractCommand>(); 
+                      stack.push(curThread);
+                    }
+                    (cmd)+ 
+                    FCH 
+                    {
+                       listaTrue = stack.pop();	
+                    } 
 cmdselecao  :  'se' AP
                     ID    { _exprDecision = _input.LT(-1).getText(); }
                     OPREL { _exprDecision += _input.LT(-1).getText(); }

@@ -8,15 +8,17 @@ programa
   
   a = 1 + 2 * 3 / b;
   
-  enquanto(a > b)
+enquanto(a > b)
 {
+    escreva(a);
+}
     se ( a > b ) {
      escreva (a);
   }
   senao {
      escreva (b);
   }
-}
+
   
   
   

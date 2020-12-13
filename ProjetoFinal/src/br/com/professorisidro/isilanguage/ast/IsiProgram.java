@@ -10,6 +10,7 @@ import br.com.professorisidro.isilanguage.datastructures.IsiSymbolTable;
 public class IsiProgram {
 	private IsiSymbolTable varTable;
 	private ArrayList<AbstractCommand> comandos;
+        private ArrayList<String> variaveis = new ArrayList<String>();
 	private String programName;
 
 	public void generateTarget() {
@@ -20,9 +21,11 @@ public class IsiProgram {
 		str.append("      Scanner _key = new Scanner(System.in);\n");
 		for (IsiSymbol symbol: varTable.getAll()) {
 			str.append(symbol.generateJavaCode()+"\n");
+                        variaveis.add(symbol.getName());
 		}
 		for (AbstractCommand command: comandos) {
 			str.append(command.generateJavaCode()+"\n");
+                        
 		}
 		str.append("  }");
 		str.append("}");

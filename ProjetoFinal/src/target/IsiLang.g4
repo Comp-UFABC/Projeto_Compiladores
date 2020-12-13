@@ -31,6 +31,7 @@ grammar IsiLang;
 	private String _exprContent;
 	private String _exprDecision;
         private String _exprRepetition;
+        private ArrayList<String> VariaveisSemUso;
 	private ArrayList<AbstractCommand> listaTrue;
 	private ArrayList<AbstractCommand> listaFalse;
 	
@@ -144,7 +145,7 @@ cmdattrib	:  ID {
 //CORRIGIR
                     if (_exprContent =="")
                     {
-                       throw new IsiSemanticException("Variável "+_exprID+" não foia atribuída");
+                       throw new IsiSemanticException("Variável "+_exprID+" não foi atribuída");
                     }
                     else{
                            CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);

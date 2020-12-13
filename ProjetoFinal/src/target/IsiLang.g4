@@ -254,14 +254,10 @@ termo		: ID { verificaID(_input.LT(-1).getText());
 	               _exprContent += _input.LT(-1).getText();
                  } 
             |
-              (NUMBER)//Incluido TEXTO
+              (NUMBER|TEXTO)//Incluido TEXTO
               {
               	_exprContent += _input.LT(-1).getText();
               }
-            |    (TEXTO)//Incluido TEXTO
-                {
-                  _exprContent += _input.LT(-1).getText();
-                }
                 ;
 			
 	

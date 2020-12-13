@@ -8,7 +8,7 @@ programa
   
   a = 1 + 2 * 3 / b;
   
-  while(a > b)
+  enquanto(a > b)
 {
     se ( a > b ) {
      escreva (a);

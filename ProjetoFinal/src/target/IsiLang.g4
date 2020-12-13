@@ -134,9 +134,9 @@ cmdescrita	: 'escreva'
                }
 			;
 			
-cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
-                    _exprID = _input.LT(-1).getText();
-                   } 
+cmdattrib	:  ID {
+                 verificaID(_input.LT(-1).getText());
+                    _exprID = _input.LT(-1).getText();   } 
                ATTR { _exprContent = ""; } 
                expr 
                SC
@@ -216,7 +216,7 @@ termo		: ID { verificaID(_input.LT(-1).getText());
 	               _exprContent += _input.LT(-1).getText();
                  } 
             | 
-              NUMBER
+              (NUMBER | TEXTO)//Incluido TEXTO
               {
               	_exprContent += _input.LT(-1).getText();
               }
@@ -257,4 +257,8 @@ ID	: [a-z] ([a-z] | [A-Z] | [0-9])*
 NUMBER	: [0-9]+ ('.' [0-9]+)?
 		;
 		
+TEXTO	: ['"']([a-z] | [A-Z] | [0-9])*['"']
+	;
+
+
 WS	: (' ' | '\t' | '\n' | '\r') -> skip;

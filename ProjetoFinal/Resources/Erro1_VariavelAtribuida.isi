@@ -3,8 +3,8 @@ programa
   numero a, b;
   texto  t1;
   texto c;
-	
-  c="Rodolfo";
+  c = "TESTE";
+
 
   leia(a);
   leia(b);

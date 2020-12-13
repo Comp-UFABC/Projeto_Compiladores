@@ -19,8 +19,8 @@ public class MainClass {
 			IsiLangLexer lexer;
 			IsiLangParser parser;
 			
-                                //Debug
-                                //input2
+                        //Debug
+                        //input2
 			// leio o arquivo "input.isi" e isso é entrada para o Analisador Lexico
 			lexer = new IsiLangLexer(CharStreams.fromFileName("resources/Erro1_VariavelAtribuida.isi"));
 			
@@ -37,6 +37,7 @@ public class MainClass {
 			
 			parser.exibeComandos();
 			
+                        
 			parser.generateCode();
 			
 		}

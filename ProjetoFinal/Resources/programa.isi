@@ -1,12 +1,16 @@
 programa
 
-  numero a,b,c,d; 
+  numero a,b,c,d,e;
+  texto g,f;
   
-  escreva("Programa Teste");
-  escreva("Digite A");
+
   leia(a);
-  escreva("Digite B");
+  escreva(a);
   leia(b);
+  escreva(b);
+   
+  e = 2.5;
+  f = "Paulo Cesar Tamara Rodolfo";
   
   se(a<b)
   {
@@ -16,13 +20,15 @@ programa
    c=a-b;
    }
    
-   escreva("C e igual a");
-   escreva(c);
-   
    d = a + b;
-   
-   escreva("D e igual a ");
    escreva(d);
    
+   
+ enquanto(a > b)
+{
+	escreva (a);
+	a = a - 1;
+}
+  
    
 fimprog;

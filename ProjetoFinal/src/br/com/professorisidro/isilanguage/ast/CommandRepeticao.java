@@ -26,9 +26,8 @@ public class CommandRepeticao extends AbstractCommand {
 	}
 	@Override
 	public String toString() {
-		return "CommandDecisao [repetition=" + repetition + ", listaTrue=" + listaTrue + "]";
+		return "CommandRepeticao [repetition=" + repetition + ", listaTrue=" + listaTrue + "]";
 	}
 	
 	
-
 }

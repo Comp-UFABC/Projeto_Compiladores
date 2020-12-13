@@ -1,0 +1,23 @@
+programa
+
+  declare a, b;
+  declare t1;
+
+  leia(a);
+  leia(b);
+  t1="Paulo"
+  escreva(t1)
+  
+  a = 1 + 2 * 3 / b;
+  
+
+  se ( a > b ) {
+     escreva (a);
+  }
+  senao {
+     escreva (b);
+  }
+  
+  
+
+fimprog;

@@ -180,7 +180,6 @@ cmdattrib	:  ID {
                expr 
                SC
                {
-//CORRIGIR
                     if (_exprContent =="")
                     {
                        throw new IsiSemanticException("Variável "+_exprID+" não foi atribuída");

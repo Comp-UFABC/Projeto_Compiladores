@@ -10,7 +10,7 @@ import br.com.professorisidro.isilanguage.datastructures.IsiSymbolTable;
 public class IsiProgram {
 	private IsiSymbolTable varTable;
 	private ArrayList<AbstractCommand> comandos;
-        private ArrayList<String> variaveis = new ArrayList<String>();
+        private ArrayList<String> varSemAtrib = new ArrayList<String>();
 	private String programName;
 
 	public void generateTarget() {
@@ -21,12 +21,20 @@ public class IsiProgram {
 		str.append("      Scanner _key = new Scanner(System.in);\n");
 		for (IsiSymbol symbol: varTable.getAll()) {
 			str.append(symbol.generateJavaCode()+"\n");
-                        variaveis.add(symbol.getName());
+                        varSemAtrib.add(symbol.getName());
 		}
 		for (AbstractCommand command: comandos) {
 			str.append(command.generateJavaCode()+"\n");
                         
+                        if(command.getCommand().equals("CommandAtribuicao"))
+                        {
+                            if(varSemAtrib.contains(command.getId()))
+                            {
+                                varSemAtrib.remove(command.getId());
+                            }
+                        }
 		}
+                
 		str.append("  }");
 		str.append("}");
 		
@@ -64,5 +72,10 @@ public class IsiProgram {
 	public void setProgramName(String programName) {
 		this.programName = programName;
 	}
+        
+        public ArrayList<String> getVarSemUso()
+        {
+            return this.varSemAtrib;
+        }
 
 }

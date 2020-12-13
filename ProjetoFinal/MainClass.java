@@ -5,6 +5,8 @@ public class MainClass{
 double  a;
 double  b;
 String  t1;
+String  t2;
+String  t3;
 a= _key.nextDouble();
 b= _key.nextDouble();
 a = 11+2*3/b;

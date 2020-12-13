@@ -32,13 +32,11 @@ public class MainClass {
 			parser = new IsiLangParser(tokenStream);
 			
 			parser.prog();
-			
 			System.out.println("Compilation Successful");
 			
-			parser.exibeComandos();
-			
-                        
+			parser.exibeComandos();                      
 			parser.generateCode();
+                        parser.Warnings();
 			
 		}
 		catch(IsiSemanticException ex) {

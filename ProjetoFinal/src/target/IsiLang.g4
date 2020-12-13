@@ -14,6 +14,7 @@ grammar IsiLang;
         import br.com.professorisidro.isilanguage.ast.CommandRepeticao;
 	import java.util.ArrayList;
 	import java.util.Stack;
+        
 }
 
 @members{
@@ -46,6 +47,38 @@ grammar IsiLang;
 			System.out.println(c);
 		}
 	}
+
+        public StringBuilder exibeVariaveisSemUsoWNG()
+	        {
+	                StringBuilder varWNG = new StringBuilder();
+                        
+	                varWNG.append("As seguintes variáveis foram declaradas e não foram utilizadas no programa: ");
+	                ArrayList<String> var = program.getVarSemUso();
+                        int size = var.size();
+                        
+                        if(size ==1)varWNG.append(var.get(0));
+                        else if(size>1)
+                        {
+                             int i=0;
+                             for(;i<size-2;i++)
+                             {
+                                 String w = var.get(i);
+                                 varWNG.append(w);
+                                 varWNG.append(",");
+                             }
+                             varWNG.append(var.get(size-1));
+                        }
+                
+	            return varWNG;
+	        }
+
+        public void Warnings()
+        {
+            StringBuilder warn = new StringBuilder();
+            warn.append("WARNINGS: \n");
+            warn.append(exibeVariaveisSemUsoWNG());
+            System.out.println(warn);
+        }
 	
 	public void generateCode(){
 		program.generateTarget();

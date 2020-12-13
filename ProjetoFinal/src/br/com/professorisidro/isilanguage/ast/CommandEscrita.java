@@ -16,6 +16,15 @@ public class CommandEscrita extends AbstractCommand {
 	public String toString() {
 		return "CommandEscrita [id=" + id + "]";
 	}
-	
+	@Override
+        public String getId()
+        {
+            return "";
+        }@Override
+        public String getCommand()
+        {
+            return this.getClass().getName();
+        }
+        
 
 }

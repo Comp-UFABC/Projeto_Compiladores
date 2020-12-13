@@ -28,6 +28,16 @@ public class CommandRepeticao extends AbstractCommand {
 	public String toString() {
 		return "CommandRepeticao [repetition=" + repetition + ", listaTrue=" + listaTrue + "]";
 	}
+        @Override
+        public String getId()
+        {
+            return "";
+        }
+        @Override
+        public String getCommand()
+        {
+            return this.getClass().getName();
+        }
 	
 	
 }

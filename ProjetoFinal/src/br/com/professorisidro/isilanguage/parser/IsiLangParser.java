@@ -14,6 +14,7 @@ package br.com.professorisidro.isilanguage.parser;
         import br.com.professorisidro.isilanguage.ast.CommandRepeticao;
 	import java.util.ArrayList;
 	import java.util.Stack;
+        
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -114,32 +115,53 @@ public class IsiLangParser extends Parser {
 		private String _exprContent;
 		private String _exprDecision;
 	        private String _exprRepetition;
+	        private ArrayList<String> VariaveisSemUso;
 		private ArrayList<AbstractCommand> listaTrue;
 		private ArrayList<AbstractCommand> listaFalse;
 		
 		public void verificaID(String id){
 			if (!symbolTable.exists(id)){
-				throw new IsiSemanticException("Symbol "+id+" not declared");
+				throw new IsiSemanticException("Simbolo "+id+" não declarado");
 			}
 		}
-
-	        public boolean IsTexto(String texto)
-	        {
-	                int size = texto.length();
-	                char esperado = '"';
-
-	                if(texto.charAt(0)==esperado && texto.charAt(size-1)==esperado)
-	                {
-	                    return true;
-	                }
-	                else return false;
-	        }
 		
 		public void exibeComandos(){
 			for (AbstractCommand c: program.getComandos()){
 				System.out.println(c);
 			}
 		}
+
+	        public StringBuilder exibeVariaveisSemUsoWNG()
+		        {
+		                StringBuilder varWNG = new StringBuilder();
+	                        
+		                varWNG.append("As seguintes variáveis foram declaradas e não foram utilizadas no programa: ");
+		                ArrayList<String> var = program.getVarSemUso();
+	                        int size = var.size();
+	                        
+	                        if(size ==1)varWNG.append(var.get(0));
+	                        else if(size>1)
+	                        {
+	                             int i=0;
+	                             for(;i<size-2;i++)
+	                             {
+	                                 String w = var.get(i);
+	                                 varWNG.append(w);
+	                                 varWNG.append(",");
+	                             }
+	                             varWNG.append(var.get(size-1));
+	                        }
+	                
+		            return varWNG;
+		        }
+
+	        public void Warnings()
+	        {
+	            StringBuilder warn = new StringBuilder();
+	            warn.append("WARNINGS: \n");
+	            warn.append(exibeVariaveisSemUsoWNG());
+	            System.out.println(warn);
+	        }
 		
 		public void generateCode(){
 			program.generateTarget();
@@ -302,7 +324,7 @@ public class IsiLangParser extends Parser {
 				                     symbolTable.add(symbol);	
 				                  }
 				                  else{
-				                  	 throw new IsiSemanticException("Symbol "+_varName+" already declared");
+				                  	 throw new IsiSemanticException("Simbolo "+_varName+" já foi declarado anteriormente");
 				                  }
 			                    
 			setState(45);
@@ -323,7 +345,7 @@ public class IsiLangParser extends Parser {
 					                     symbolTable.add(symbol);	
 					                  }
 					                  else{
-					                  	 throw new IsiSemanticException("Symbol "+_varName+" already declared");
+					                  	 throw new IsiSemanticException("Simbolo "+_varName+" já foi declarado anteriormente");
 					                  }
 				                    
 				}
@@ -699,7 +721,7 @@ public class IsiLangParser extends Parser {
 			//CORRIGIR
 			                    if (_exprContent =="")
 			                    {
-			                       throw new IsiSemanticException("Variable "+_exprID+" is not attributed");
+			                       throw new IsiSemanticException("Variável "+_exprID+" não foi atribuída");
 			                    }
 			                    else{
 			                           CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);

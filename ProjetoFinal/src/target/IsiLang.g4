@@ -155,11 +155,8 @@ cmdenquanto :  'enquanto'
                       curThread = new ArrayList<AbstractCommand>(); 
                       stack.push(curThread);
                     }
-                    (cmd)+ 
-                    FCH 
-                    {
-                       listaTrue = stack.pop();	
-                    } 
+                    ;
+                    
 cmdselecao  :  'se' AP
                     ID    { _exprDecision = _input.LT(-1).getText(); }
                     OPREL { _exprDecision += _input.LT(-1).getText(); }

@@ -112,6 +112,7 @@ public class IsiLangParser extends Parser {
 		private String _exprID;
 		private String _exprContent;
 		private String _exprDecision;
+	        private String _exprRepetition;
 		private ArrayList<AbstractCommand> listaTrue;
 		private ArrayList<AbstractCommand> listaFalse;
 		
@@ -742,10 +743,10 @@ public class IsiLangParser extends Parser {
 			match(AP);
 			setState(95);
 			match(ID);
-			_exprDecision = _input.LT(-1).getText(); 
+			_exprRepetition = _input.LT(-1).getText(); 
 			setState(97);
 			match(OPREL);
-			 _exprDecision += _input.LT(-1).getText(); 
+			 _exprRepetition += _input.LT(-1).getText(); 
 			setState(99);
 			_la = _input.LA(1);
 			if ( !(_la==ID || _la==NUMBER) ) {
@@ -756,7 +757,7 @@ public class IsiLangParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			_exprDecision += _input.LT(-1).getText(); 
+			_exprRepetition += _input.LT(-1).getText(); 
 			setState(101);
 			match(FP);
 			setState(102);
@@ -783,7 +784,7 @@ public class IsiLangParser extends Parser {
 			match(FCH);
 
 			                       listaTrue = stack.pop();	
-			                       CommandRepeticao cmd = new CommandRepeticao(_exprDecision, listaTrue);
+			                       CommandRepeticao cmd = new CommandRepeticao(_exprRepetition, listaTrue);
 			                   		stack.peek().add(cmd);
 			                    
 			}

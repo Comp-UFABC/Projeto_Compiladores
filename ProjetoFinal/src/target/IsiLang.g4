@@ -30,6 +30,7 @@ grammar IsiLang;
 	private String _exprID;
 	private String _exprContent;
 	private String _exprDecision;
+        private String _exprRepetition;
 	private ArrayList<AbstractCommand> listaTrue;
 	private ArrayList<AbstractCommand> listaFalse;
 	
@@ -147,9 +148,9 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
 			
 cmdenquanto :  'enquanto'
                     AP
-                    ID{_exprDecision = _input.LT(-1).getText(); }
-                    OPREL { _exprDecision += _input.LT(-1).getText(); }
-                    (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
+                    ID{_exprRepetition = _input.LT(-1).getText(); }
+                    OPREL { _exprRepetition += _input.LT(-1).getText(); }
+                    (ID | NUMBER) {_exprRepetition += _input.LT(-1).getText(); }
                     FP
                     ACH
                     {
@@ -161,7 +162,7 @@ cmdenquanto :  'enquanto'
                     FCH 
                     {
                        listaTrue = stack.pop();	
-                       CommandRepeticao cmd = new CommandRepeticao(_exprDecision, listaTrue);
+                       CommandRepeticao cmd = new CommandRepeticao(_exprRepetition, listaTrue);
                    		stack.peek().add(cmd);
                     } 
                     ;

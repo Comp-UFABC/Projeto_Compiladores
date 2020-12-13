@@ -4,9 +4,8 @@ public class MainClass{
        Scanner _key = new Scanner(System.in);
 double  a;
 double  b;
-double  c;
+String  c;
 String  t1;
-c = ;
 a= _key.nextDouble();
 b= _key.nextDouble();
 a = 1+2*3/b;

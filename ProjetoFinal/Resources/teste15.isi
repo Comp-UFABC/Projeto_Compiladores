@@ -1,11 +1,11 @@
 programa
 
-  numero a;
-  texto b;
+  numero a.
+  texto b.
   
 
   
-  a = "teste";
+  a := "teste".
   
   
-fimprog;
+fimprog.

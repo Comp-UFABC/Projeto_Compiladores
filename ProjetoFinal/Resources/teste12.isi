@@ -1,10 +1,10 @@
 programa
 
-  texto a; 
+  texto a.
   
-  a = "Paulo Tamara Cesar Rodolfo";
+  a := "Paulo Tamara Cesar Rodolfo".
   
-  escreva (a); 
+  escreva (a).
   
   
-fimprog;
+fimprog.

@@ -1,10 +1,10 @@
 programa
 
-  numero a,b; 
+  numero a,b.
   
-  a = 2.06;
+  a := 2.06.
   
-  escreva (a); 
+  escreva (a).
   
   
-fimprog;
+fimprog.

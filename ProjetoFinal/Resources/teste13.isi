@@ -2,9 +2,9 @@ programa
 
   
   
-  a = 1;
+  a := 1.
   
-  escreva (a); 
+  escreva (a).
   
   
-fimprog;
+fimprog.

@@ -1,12 +1,12 @@
 programa
 
-  numero a, b;
+  numero a, b.
 
   
-  a = 1 + 2 * 3;
+  a := 1 + 2 * 3.
   
 
-  escreva (b);
+  escreva (b).
 
   
-fimprog;
+fimprog.

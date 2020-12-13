@@ -49,36 +49,41 @@ grammar IsiLang;
 	}
 
         public StringBuilder exibeVariaveisSemUsoWNG()
-	        {
-	                StringBuilder varWNG = new StringBuilder();
-                        
-	                varWNG.append("As seguintes variáveis foram declaradas e não foram utilizadas no programa: ");
-	                ArrayList<String> var = program.getVarSemUso();
-                        int size = var.size();
-                        
-                        if(size ==1)varWNG.append(var.get(0));
-                        else if(size>1)
-                        {
-                             int i=0;
-                             for(;i<=size-2;i++)
-                             {
-                                 String w = var.get(i);
-                                 varWNG.append(w);
-                                 varWNG.append(",");
-                             }
-                             varWNG.append(var.get(size-1));
-                        }
-                
-	            return varWNG;
-	        }
+            {
+                    StringBuilder varWNG = new StringBuilder();
+
+                    varWNG.append("As seguintes variáveis foram declaradas e não foram utilizadas no programa: ");
+                    ArrayList<String> var = program.getVarSemUso();
+
+                    if(var.isEmpty())return null;
+
+                    int size = var.size();
+                    if(size ==1)varWNG.append(var.get(0));
+
+                    else if(size>1)
+                    {
+                         int i=0;
+                         for(;i<=size-2;i++)
+                         {
+                             String w = var.get(i);
+                             varWNG.append(w);
+                             varWNG.append(",");
+                         }
+                         varWNG.append(var.get(size-1));
+                    }
+
+                return varWNG;
+            }
 
         public void Warnings()
-        {
-            StringBuilder warn = new StringBuilder();
-            warn.append("WARNINGS: \n");
-            warn.append(exibeVariaveisSemUsoWNG());
-            System.out.println(warn);
-        }
+            {
+                StringBuilder warn = new StringBuilder();
+                StringBuilder var = exibeVariaveisSemUsoWNG();
+                if(var==null)return;
+                warn.append("WARNINGS: \n");
+                warn.append(exibeVariaveisSemUsoWNG());
+                System.out.println(warn);
+            }
 	
 	public void generateCode(){
 		program.generateTarget();
@@ -291,7 +296,7 @@ ID	: [a-z] ([a-z] | [A-Z] | [0-9])*
 NUMBER	: [0-9]+ ('.' [0-9]+)?
 		;
 		
-TEXTO	: ['"']([a-z] | [A-Z] | [0-9])*['"']
+TEXTO	: ['"']([a-z] | [A-Z] | [0-9] | ' ')*['"']
 	;
 
 

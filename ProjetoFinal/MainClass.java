@@ -3,11 +3,9 @@ public class MainClass{
   public static void main(String args[]){
        Scanner _key = new Scanner(System.in);
 double  a;
-double  b;
+String  b;
 a = 1;
-b = 2;
-if (a>b) {
-System.out.println(a);}else {
-System.out.println(b);}
-
+b = "Teste";
+System.out.println(a);
+System.out.println(b);
   }}

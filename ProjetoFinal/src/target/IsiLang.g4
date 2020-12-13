@@ -36,7 +36,7 @@ grammar IsiLang;
 	
 	public void verificaID(String id){
 		if (!symbolTable.exists(id)){
-			throw new IsiSemanticException("Symbol "+id+" not declared");
+			throw new IsiSemanticException("Simbolo "+id+" não declarado");
 		}
 	}
 	
@@ -70,7 +70,7 @@ declaravar :  tipo ID  {
 	                     symbolTable.add(symbol);	
 	                  }
 	                  else{
-	                  	 throw new IsiSemanticException("Symbol "+_varName+" already declared");
+	                  	 throw new IsiSemanticException("Simbolo "+_varName+" já foi declarado anteriormente");
 	                  }
                     } 
               (  VIR 
@@ -82,7 +82,7 @@ declaravar :  tipo ID  {
 	                     symbolTable.add(symbol);	
 	                  }
 	                  else{
-	                  	 throw new IsiSemanticException("Symbol "+_varName+" already declared");
+	                  	 throw new IsiSemanticException("Simbolo "+_varName+" já foi declarado anteriormente");
 	                  }
                     }
               )* 
@@ -144,7 +144,7 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
 //CORRIGIR
                     if (_exprContent =="")
                     {
-                       throw new IsiSemanticException("Variable "+_exprID+" is not attributed");
+                       throw new IsiSemanticException("Variável "+_exprID+" não foia atribuída");
                     }
                     else{
                            CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);

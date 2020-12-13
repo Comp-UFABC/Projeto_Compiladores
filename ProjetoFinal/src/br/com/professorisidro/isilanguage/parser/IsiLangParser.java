@@ -683,8 +683,15 @@ public class IsiLangParser extends Parser {
 			setState(90);
 			match(SC);
 
-			               	 CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
-			               	 stack.peek().add(cmd);
+			                    if (_exprContent =="")
+			                    {
+			                       throw new IsiSemanticException("Variable "+_exprID+" is not attributed");
+			                    }
+			                    else{
+			                           CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
+			                           stack.peek().add(cmd);
+			                    }
+			               	
 			               
 			}
 		}

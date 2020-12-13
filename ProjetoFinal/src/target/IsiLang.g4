@@ -141,8 +141,16 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
                expr 
                SC
                {
-               	 CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
-               	 stack.peek().add(cmd);
+//CORRIGIR
+                    if (_exprContent =="")
+                    {
+                       throw new IsiSemanticException("Variable "+_exprID+" is not attributed");
+                    }
+                    else{
+                           CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
+                           stack.peek().add(cmd);
+                    }
+               	
                }
 			;
 			

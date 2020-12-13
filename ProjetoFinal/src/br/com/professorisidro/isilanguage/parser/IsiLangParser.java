@@ -122,6 +122,18 @@ public class IsiLangParser extends Parser {
 				throw new IsiSemanticException("Symbol "+id+" not declared");
 			}
 		}
+
+	        public boolean IsTexto(String texto)
+	        {
+	                int size = texto.length();
+	                char esperado = '"';
+
+	                if(texto.charAt(0)==esperado && texto.charAt(size-1)==esperado)
+	                {
+	                    return true;
+	                }
+	                else return false;
+	        }
 		
 		public void exibeComandos(){
 			for (AbstractCommand c: program.getComandos()){
@@ -673,9 +685,9 @@ public class IsiLangParser extends Parser {
 			{
 			setState(85);
 			match(ID);
-			 verificaID(_input.LT(-1).getText());
-			                    _exprID = _input.LT(-1).getText();
-			                   
+
+			                 verificaID(_input.LT(-1).getText());
+			                    _exprID = _input.LT(-1).getText();   
 			setState(87);
 			match(ATTR);
 			 _exprContent = ""; 

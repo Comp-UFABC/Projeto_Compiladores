@@ -39,18 +39,6 @@ grammar IsiLang;
 			throw new IsiSemanticException("Symbol "+id+" not declared");
 		}
 	}
-
-        public boolean IsTexto(String texto)
-        {
-                int size = texto.length();
-                char esperado = '"';
-
-                if(texto.charAt(0)==esperado && texto.charAt(size-1)==esperado)
-                {
-                    return true;
-                }
-                else return false;
-        }
 	
 	public void exibeComandos(){
 		for (AbstractCommand c: program.getComandos()){
@@ -269,7 +257,7 @@ ID	: [a-z] ([a-z] | [A-Z] | [0-9])*
 NUMBER	: [0-9]+ ('.' [0-9]+)?
 		;
 		
-TEXTO	: ('"' [a-z] '"') | ('"' [A-Z] '"') | ('"' [0-9] '"')
+TEXTO	: ['"']([a-z] | [A-Z] | [0-9])*['"']
 	;
 
 

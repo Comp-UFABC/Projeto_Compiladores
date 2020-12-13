@@ -6,6 +6,7 @@ double  a;
 double  b;
 String  c;
 String  t1;
+c = "TESTE";
 a= _key.nextDouble();
 b= _key.nextDouble();
 a = 1+2*3/b;

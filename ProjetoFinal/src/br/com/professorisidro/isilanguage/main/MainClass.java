@@ -22,7 +22,7 @@ public class MainClass {
                         //Debug
                         //input2
 			// leio o arquivo "input.isi" e isso é entrada para o Analisador Lexico
-			lexer = new IsiLangLexer(CharStreams.fromFileName("resources/input4_VariavelUsada.isi"));
+			lexer = new IsiLangLexer(CharStreams.fromFileName("resources/Teste16.isi"));
 			
 			// crio um "fluxo de tokens" para passar para o PARSER
 	

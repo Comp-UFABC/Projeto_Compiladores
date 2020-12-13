@@ -1,17 +1,17 @@
 programa
 
-  numero a, b;
+  numero a, b.
 
-  a = 1;
-  b = 2;
+  a := 1.
+  b := 2.
   
 
   se ( a > b ) {
-     escreva (a);
+     escreva (a).
   }
   senao {
-     escreva (b);
+     escreva (b).
   }
 
   
-fimprog;
+fimprog.

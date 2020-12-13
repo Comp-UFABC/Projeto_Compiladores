@@ -1,8 +1,8 @@
 programa
 
-  numero a;
+  numero a.
 
-  a = 54  * 10/100;
+  a := 54  * 10/100.
   
   
-fimprog;
+fimprog.

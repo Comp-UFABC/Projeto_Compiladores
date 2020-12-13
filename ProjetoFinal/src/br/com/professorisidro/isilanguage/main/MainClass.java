@@ -22,7 +22,7 @@ public class MainClass {
                         //Debug
                         //input2
 			// leio o arquivo "input.isi" e isso é entrada para o Analisador Lexico
-			lexer = new IsiLangLexer(CharStreams.fromFileName("resources/Erro1_VariavelAtribuida.isi"));
+			lexer = new IsiLangLexer(CharStreams.fromFileName("resources/input4_VariavelUsada.isi"));
 			
 			// crio um "fluxo de tokens" para passar para o PARSER
 	
@@ -32,13 +32,11 @@ public class MainClass {
 			parser = new IsiLangParser(tokenStream);
 			
 			parser.prog();
-			
 			System.out.println("Compilation Successful");
 			
-			parser.exibeComandos();
-			
-                        
+			parser.exibeComandos();                      
 			parser.generateCode();
+                        parser.Warnings();
 			
 		}
 		catch(IsiSemanticException ex) {

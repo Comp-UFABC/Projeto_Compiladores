@@ -14,6 +14,7 @@ package br.com.professorisidro.isilanguage.parser;
         import br.com.professorisidro.isilanguage.ast.CommandRepeticao;
 	import java.util.ArrayList;
 	import java.util.Stack;
+        
 
 
 import org.antlr.v4.runtime.ParserRuleContext;

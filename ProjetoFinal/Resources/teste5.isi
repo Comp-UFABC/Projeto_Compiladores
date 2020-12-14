@@ -1,12 +1,7 @@
 programa
 
   numero a, b.
-
+  b :=. 
   
-  a := 1 + 2 * 3.
-  
-
-  escreva (b).
-
   
 fimprog.

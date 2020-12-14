@@ -723,7 +723,6 @@ public class IsiLangParser extends Parser {
 			setState(90);
 			match(SC);
 
-			//CORRIGIR
 			                    if (_exprContent =="")
 			                    {
 			                       throw new IsiSemanticException("Variável "+_exprID+" não foi atribuída");
